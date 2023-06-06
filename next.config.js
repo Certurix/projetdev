@@ -1,7 +1,6 @@
 const path = require('path');
 
 const nextConfig = {
-  pageExtensions: ['js', 'tsx', 'ts'],
   experimental: {
     appDir: true,
   },
