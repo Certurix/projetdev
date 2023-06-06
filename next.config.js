@@ -4,18 +4,14 @@ const nextConfig = {
   experimental: {
     appDir: true,
   },
-  /* Rewriting next rules*/
-  async rewrites() {
-    return [
-      {
-        source: "/",
-        destination: "/app/page.tsx",
-      },
-      {
-        source: "/about",
-        destination: "/app/about/page.tsx",
-      },
-    ];
+  exportPathMap: async function (
+    defaultPathMap,
+    { dev, dir, outDir, distDir, buildId },
+  ) {
+    return {
+      '/': { page: '/app/' },
+      '/about': { page: '/app/about' },
+    };
   },
 };
 
