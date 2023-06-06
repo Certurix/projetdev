@@ -1,4 +1,4 @@
-/** @type {import('next').NextConfig} */
+const path = require('path');
 
 const nextConfig = {
   experimental: {
@@ -12,6 +12,10 @@ const nextConfig = {
         permanent: true,
       },
     ];
+  },
+  webpack(config) {
+    config.resolve.alias['@pages'] = path.join(__dirname, 'app');
+    return config;
   },
 };
 
